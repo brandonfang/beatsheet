@@ -1,6 +1,10 @@
-# BeatSheet Exercise Starter
+# Beat Sheet
 
-This guide provides instructions on how to run the beetsheet backend in a docker container.
+Beat Sheet is a screenwriting app used to plan the content and structure of videos. Acts are large sections of story containing many beats. A beat can be a shot, some lines of dialog, or a whole scene, depending upon the duration of video.
+
+![beat sheet screenshot](screenshot.png)
+
+This guide provides instructions on how to run the beatsheet backend in a docker container.
 
 ## Requirements
 
@@ -49,3 +53,17 @@ This command will stop and remove the Docker container. Please note that any dat
 ## Notes
 
 Please ensure that the port defined in the `docker-compose.yml` file is not being used by any other applications to avoid any port conflict.
+
+## Frontend
+
+The frontend is a Next.js app inside `/beatsheet-app`. The development server can be run with:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
