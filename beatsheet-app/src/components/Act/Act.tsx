@@ -24,17 +24,19 @@ const Act: FC<TProps> = async ({ act }) => {
   const sortedBeats = beats.sort((a, b) => (a?.id > b?.id ? 1 : -1))
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 animate-[fade-in_500ms]">
       <div className="flex flex-row space-between space-x-4 mb-8">
-        <div className="grow px-6 py-2 rounded bg-sky-50">
+        <div className="grow px-6 py-4 rounded bg-slate-100">
           <div className="flex justify-between items-center">
             <h2 className="text-slate-900 font-bold">
               Act {act.id}: {act.name}
             </h2>
-            <DeleteAct act={act} beats={beats} />
+            <div className='flex space-x-2'>
+              <CreateBeat act={act} />
+              <DeleteAct act={act} beats={beats} />
+            </div>
           </div>
         </div>
-        <CreateBeat act={act} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
         {beats.length > 0 ? (

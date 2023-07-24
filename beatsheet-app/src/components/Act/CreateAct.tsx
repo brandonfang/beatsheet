@@ -2,7 +2,7 @@
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { FC, useState } from 'react'
-import { FiX } from 'react-icons/fi'
+import { FiPlus, FiX } from 'react-icons/fi'
 
 import { TNewAct } from '@/types'
 import { createAct } from '@/utils'
@@ -25,8 +25,9 @@ const CreateAct: FC = () => {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="px-4 py-3 rounded bg-indigo-500 hover:bg-indigo-700 text-indigo-100 font-medium">
-        Add act
+      <Dialog.Trigger className="flex justify-center items-center space-x-1.5 pl-3 pr-4 py-3 rounded bg-sky-600 hover:bg-sky-700 text-indigo-100 font-medium text-lg mb-4">
+        <FiPlus size={16} />
+        <span>Add act</span>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/40" />

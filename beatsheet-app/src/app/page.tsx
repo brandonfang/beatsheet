@@ -5,6 +5,7 @@ import Act from '@/components/Act/Act'
 import CreateAct from '@/components/Act/CreateAct'
 import { TAct } from '@/types'
 import { getActs } from '@/utils'
+import SpotterLogo from './SpotterLogo'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -19,23 +20,29 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-slate-900">
       <div className="max-w-screen-2xl mx-auto p-6 sm:p-8 lg:p-12">
+        <SpotterLogo />
         <h1
-          className={`${spaceGrotesk.className} text-2xl font-medium text-slate-100 mb-8`}
+          className={`${spaceGrotesk.className} transition-all duration-300 text-2xl lg:text-3xl font-medium text-slate-100 mt-0.5 mb-8`}
         >
-          Welcome to Beat Sheet
+          Beat Sheet
         </h1>
         <main>
           {acts.length > 0 ? (
-            sortedActs.map((act) => <Act act={act} key={act.id} />)
+            <>
+              <CreateAct />
+              {sortedActs.map((act) => (
+                <Act act={act} key={act.id} />
+              ))}
+            </>
           ) : (
             <div className="my-8">
-              <p className="text-xl font-medium text-slate-100">
+              <p className="text-xl font-normal text-slate-100">
                 This story has no acts. Click "Add act" to get started.
               </p>
+              <CreateAct />
             </div>
           )}
         </main>
-        <CreateAct />
       </div>
     </div>
   )

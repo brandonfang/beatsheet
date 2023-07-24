@@ -30,23 +30,10 @@ const DeleteAct: FC<TProps> = ({ act, beats }) => {
   return (
     <Tooltip.Provider>
       <Dialog.Root open={open} onOpenChange={setOpen}>
-        <Tooltip.Root delayDuration={0}>
-          <Tooltip.Trigger
-            asChild
-            className="rounded-lg px-2.5 py-2 flex justify-center items-center hover:bg-slate-300"
-          >
-            <Dialog.Trigger>
-              <FiTrash2 size={16} className="text-slate-900" />
-            </Dialog.Trigger>
-          </Tooltip.Trigger>
-          <Tooltip.Content
-            sideOffset={4}
-            className="bg-slate-600 rounded text-sm px-3 py-2 text-slate-100"
-          >
-            Delete act
-            <Tooltip.Arrow className="fill-slate-600" />
-          </Tooltip.Content>
-        </Tooltip.Root>
+        <Dialog.Trigger className="flex justify-center items-center space-x-1.5 pl-3 pr-4 py-2 rounded bg-slate-300 hover:bg-slate-400 text-indigo-500 hover:text-indigo-600 font-medium">
+          <FiTrash2 size={16} />
+          <span>Delete act</span>
+        </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/40" />
           <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white p-6 text-gray-900 shadow rounded-lg data-[state=open]:animate-[show-dialog_300ms] data-[state=closed]:animate-[hide-dialog_300ms]">

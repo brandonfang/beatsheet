@@ -41,14 +41,14 @@ const Beat: FC<TProps> = ({ act, beat }) => {
 
         <div className="flex flex-row items-start space-x-3 mb-3">
           <Tooltip.Root delayDuration={0}>
-            <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0">
+            <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0 text-green-400">
               <FiClock size={16} />
             </Tooltip.Trigger>
             <Tooltip.Portal>
               <Tooltip.Content
                 side="left"
                 sideOffset={4}
-                className="bg-slate-600 rounded text-sm px-3 py-2 text-slate-100"
+                className="bg-green-200 rounded text-sm px-3 py-2 font-medium text-green-700"
               >
                 Time
               </Tooltip.Content>
@@ -61,14 +61,14 @@ const Beat: FC<TProps> = ({ act, beat }) => {
 
         <div className="flex flex-row items-start space-x-3 mb-3">
           <Tooltip.Root delayDuration={0}>
-            <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0">
+            <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0 text-orange-400">
               <FiCamera size={16} />
             </Tooltip.Trigger>
             <Tooltip.Portal>
               <Tooltip.Content
                 side="left"
                 sideOffset={4}
-                className="bg-slate-600 rounded text-sm px-2.5 py-2 text-slate-100"
+                className="bg-orange-200 rounded text-sm px-2.5 py-2 font-medium text-orange-700"
               >
                 Camera angle
               </Tooltip.Content>
@@ -80,14 +80,14 @@ const Beat: FC<TProps> = ({ act, beat }) => {
         {content.length > 0 && (
           <div className="flex flex-row items-start space-x-3 mb-3">
             <Tooltip.Root delayDuration={0}>
-              <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0">
+              <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0 text-purple-400">
                 <FiFilm size={16} />
               </Tooltip.Trigger>
               <Tooltip.Portal>
                 <Tooltip.Content
                   side="left"
                   sideOffset={4}
-                  className="bg-slate-600 rounded text-sm px-3 py-2 text-slate-100"
+                  className="bg-purple-200 rounded text-sm px-3 py-2 font-medium text-purple-700"
                 >
                   Content
                 </Tooltip.Content>
@@ -100,14 +100,14 @@ const Beat: FC<TProps> = ({ act, beat }) => {
         {notes.length > 0 && (
           <div className="flex flex-row items-start space-x-3 mb-3">
             <Tooltip.Root delayDuration={0}>
-              <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0">
+              <Tooltip.Trigger className="cursor-default p-0 mt-1 shrink-0 text-blue-400">
                 <FiFileText size={16} />
               </Tooltip.Trigger>
               <Tooltip.Portal>
                 <Tooltip.Content
                   side="left"
                   sideOffset={4}
-                  className="bg-slate-600 rounded text-sm px-3 py-2 text-slate-100"
+                  className="bg-blue-200 rounded text-sm px-3 py-2 font-medium text-blue-700"
                 >
                   Notes
                 </Tooltip.Content>

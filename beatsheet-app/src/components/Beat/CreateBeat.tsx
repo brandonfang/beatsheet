@@ -2,7 +2,7 @@
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { FC, useState } from 'react'
-import { FiX } from 'react-icons/fi'
+import { FiX, FiPlus } from 'react-icons/fi'
 
 import { TAct, TNewBeat } from '@/types'
 import { createBeat } from '@/utils'
@@ -41,8 +41,9 @@ const CreateBeat: FC<TProps> = ({ act }) => {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-700 text-indigo-100 font-medium">
-        Add beat
+      <Dialog.Trigger className="flex justify-center items-center space-x-1.5 pl-3 pr-4 py-2 rounded bg-indigo-500 hover:bg-indigo-700 text-indigo-100 font-medium">
+        <FiPlus size={16} />
+        <span>Add beat</span>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/40" />
