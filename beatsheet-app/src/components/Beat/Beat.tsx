@@ -24,7 +24,7 @@ const Beat: FC<TProps> = ({ act, beat }) => {
 
   return (
     <Tooltip.Provider>
-      <div className="p-6 rounded-lg border border-black/5 bg-slate-800/25 text-slate-400">
+      <div className="w-full p-6 rounded-lg border border-black/5 bg-slate-800/40 text-slate-400">
         <div className="flex flex-row justify-between items-start space-x-1 mb-2">
           <h3
             title={name}
@@ -35,7 +35,7 @@ const Beat: FC<TProps> = ({ act, beat }) => {
 
           <div className="flex flex-row">
             <EditBeat act={act} beat={beat} />
-            <DeleteBeat beat={beat} />
+            <DeleteBeat act={act} beat={beat} />
           </div>
         </div>
 
@@ -54,9 +54,8 @@ const Beat: FC<TProps> = ({ act, beat }) => {
               </Tooltip.Content>
             </Tooltip.Portal>
           </Tooltip.Root>
-          <p className="font-medium text-green-300">
+          <p className="font-medium text-slate-100">
             {time.split('-').join(' – ')}
-            {/* {time} */}
           </p>
         </div>
 
@@ -75,7 +74,7 @@ const Beat: FC<TProps> = ({ act, beat }) => {
               </Tooltip.Content>
             </Tooltip.Portal>
           </Tooltip.Root>
-          <p className="font-medium text-blue-300">{cameraAngle}</p>
+          <p className="font-medium text-slate-100">{cameraAngle}</p>
         </div>
 
         {content.length > 0 && (
@@ -94,7 +93,7 @@ const Beat: FC<TProps> = ({ act, beat }) => {
                 </Tooltip.Content>
               </Tooltip.Portal>
             </Tooltip.Root>
-            <p className="font-medium text-purple-300">{content}</p>
+            <p className="font-medium text-slate-100">{content}</p>
           </div>
         )}
 
@@ -114,7 +113,7 @@ const Beat: FC<TProps> = ({ act, beat }) => {
                 </Tooltip.Content>
               </Tooltip.Portal>
             </Tooltip.Root>
-            <p className="font-medium text-rose-300">{notes}</p>
+            <p className="font-medium text-slate-100">{notes}</p>
           </div>
         )}
       </div>

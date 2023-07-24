@@ -4,7 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { FC, useState } from 'react'
 import { FiX } from 'react-icons/fi'
 
-import { TAct, TBeat } from '@/types'
+import { TAct, TNewBeat } from '@/types'
 import { createBeat } from '@/utils'
 
 type TProps = {
@@ -14,7 +14,7 @@ type TProps = {
 const CreateBeat: FC<TProps> = ({ act }) => {
   const [open, setOpen] = useState<boolean>(false)
   const [saving, setSaving] = useState(false)
-  const [beat, setBeat] = useState<TBeat>({
+  const [beat, setBeat] = useState<TNewBeat>({
     name: '',
     time: '',
     cameraAngle: '',
@@ -41,7 +41,7 @@ const CreateBeat: FC<TProps> = ({ act }) => {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="px-4 py-3 rounded bg-indigo-500 hover:bg-indigo-700 text-indigo-100 font-medium">
+      <Dialog.Trigger className="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-700 text-indigo-100 font-medium">
         Add beat
       </Dialog.Trigger>
       <Dialog.Portal>

@@ -7,7 +7,7 @@ import { FC, FormEvent, useState } from 'react'
 import { FiEdit3, FiX } from 'react-icons/fi'
 
 import { TAct, TBeat } from '@/types'
-// import { editBeat } from '@/utils'
+import { editBeat } from '@/utils'
 
 type TProps = {
   act: TAct
@@ -35,24 +35,12 @@ const EditBeat: FC<TProps> = ({ act, beat }) => {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSaving(true)
-    // editBeat(beat)
-    fetch(`http://localhost:8080/acts/beats/${beat.id}`, {
-      method: 'PUT',
-      mode: 'cors',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(beat),
-    }).then((res) => {
-      console.log(res)
-      console.log(res.headers.forEach(console.log))
-    })
+    await editBeat(newBeat)
     setOpen(false)
   }
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Tooltip.Root delayDuration={0}>
         <Tooltip.Trigger
           asChild

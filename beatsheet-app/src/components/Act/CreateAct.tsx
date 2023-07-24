@@ -4,13 +4,13 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { FC, useState } from 'react'
 import { FiX } from 'react-icons/fi'
 
-import { TAct } from '@/types'
+import { TNewAct } from '@/types'
 import { createAct } from '@/utils'
 
 const CreateAct: FC = () => {
   const [open, setOpen] = useState<boolean>(false)
   const [saving, setSaving] = useState(false)
-  const [act, setAct] = useState<TAct>({
+  const [act, setAct] = useState<TNewAct>({
     name: '',
   })
   const { name } = act
@@ -18,7 +18,9 @@ const CreateAct: FC = () => {
 
   async function handleSubmit(e: any) {
     e.preventDefault()
+    setSaving(true)
     createAct(act)
+    setOpen(false)
   }
 
   return (

@@ -20,13 +20,13 @@ type TProps = {
 }
 
 const Act: FC<TProps> = async ({ act }) => {
-  // @ts-ignore-error
   const beats: TBeat[] = await getBeats(act.id)
+  const sortedBeats = beats.sort((a, b) => (a?.id > b?.id ? 1 : -1))
 
   return (
     <div className="mb-8">
-      <div className="flex flex-row space-between space-x-8 mb-8">
-        <div className="grow px-6 py-3 rounded bg-slate-100">
+      <div className="flex flex-row space-between space-x-4 mb-8">
+        <div className="grow px-6 py-2 rounded bg-sky-50">
           <div className="flex justify-between items-center">
             <h2 className="text-slate-900 font-bold">
               Act {act.id}: {act.name}
@@ -36,9 +36,11 @@ const Act: FC<TProps> = async ({ act }) => {
         </div>
         <CreateBeat act={act} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
         {beats.length > 0 ? (
-          beats.map((beat) => <Beat act={act} beat={beat} key={beat.id} />)
+          sortedBeats.map((beat) => (
+            <Beat act={act} beat={beat} key={beat.id} />
+          ))
         ) : (
           <div className="p-10 pt-8 rounded-lg border border-black/5 bg-slate-800/25 text-slate-400">
             <div className="flex flex-col justify-center items-center">

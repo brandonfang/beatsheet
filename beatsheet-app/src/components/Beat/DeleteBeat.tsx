@@ -5,14 +5,15 @@ import * as Tooltip from '@radix-ui/react-tooltip'
 import { FC, FormEvent, useState } from 'react'
 import { FiTrash2, FiX } from 'react-icons/fi'
 
-import { TBeat } from '@/types'
-// import { deleteBeat } from '@/utils'
+import { TAct, TBeat } from '@/types'
+import { deleteBeat } from '@/utils'
 
 type TProps = {
+  act: TAct
   beat: TBeat
 }
 
-const DeleteBeat: FC<TProps> = ({ beat }) => {
+const DeleteBeat: FC<TProps> = ({ act, beat }) => {
   const [open, setOpen] = useState<boolean>(false)
   const [saving, setSaving] = useState(false)
   const [confirmation, setConfirmation] = useState<string>('')
@@ -22,18 +23,7 @@ const DeleteBeat: FC<TProps> = ({ beat }) => {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSaving(true)
-    // deleteBeat(beat)
-    fetch(`http://localhost:8080/acts/beats/${beat.id}`, {
-      method: 'DELETE',
-      // mode: 'cors',
-      // credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      console.log(res)
-      console.log(res.headers.forEach(console.log))
-    })
+    await deleteBeat(act.id, beat.id)
     setOpen(false)
   }
 

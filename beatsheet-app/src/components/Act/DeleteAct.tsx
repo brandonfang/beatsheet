@@ -6,7 +6,7 @@ import { FC, FormEvent, useState } from 'react'
 import { FiTrash2, FiX } from 'react-icons/fi'
 
 import { TAct, TBeat } from '@/types'
-// import { deleteAct } from '@/utils'
+import { deleteAct } from '@/utils'
 
 type TProps = {
   act: TAct
@@ -22,18 +22,9 @@ const DeleteAct: FC<TProps> = ({ act, beats }) => {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // deleteAct(act)
-    fetch(`http://localhost:8080/acts/acts/${act.id}`, {
-      method: 'DELETE',
-      // mode: 'cors',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      console.log(res)
-      console.log(res.headers.forEach(console.log))
-    })
+    setSaving(true)
+    deleteAct(act.id)
+    setOpen(false)
   }
 
   return (
@@ -96,11 +87,14 @@ const DeleteAct: FC<TProps> = ({ act, beats }) => {
                         sideOffset={4}
                         className="bg-slate-800 rounded text-sm px-3 py-2 text-slate-100"
                       >
-                        {beats.map((beat) => (
-                          <div className="block" key={beat.id}>
-                            {beat.name}
-                          </div>
-                        ))}
+                        <div className="font-semibold text-red-400">
+                          To be deleted:
+                        </div>
+                        <ul>
+                          {beats.map((beat) => (
+                            <li key={beat.id}>{beat.name}</li>
+                          ))}
+                        </ul>
                         <Tooltip.Arrow className="fill-slate-800" />
                       </Tooltip.Content>
                     </Tooltip.Portal>
